@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | {{single.name|title}} {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+{% block content %}
+<!--  -->
+  <div class="container-fluid mt-4 mb-4">
+    <h1  class="subject">{{single.name|title}}</h1> 
+    <div class="row mb-5">
+     <!-- box 1  -->
+     {% if paginate %}
+       {% for item in paginate %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">
+            <div class="card w-100">
+              <a href="{% url 'meals' %}"><img src="{{item.image.url}}" class="card-img-top w-100  mb-3"></a>
+              <div class="card-body text-center mb-4">
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Variety: {{item.variety.name| title}}</h5>
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Meal: {{item.meal| title}}</h5>
+                <p class="card-text mb-4 text-success">Price:
+                  {% if item.discount %}
+                    <del>{{item.price|floatformat:2|intcomma}}</del>
+                    <span>{{item.discount|floatformat:2|intcomma}}</span>
+                  {% else %}
+                    <span>{{item.price|floatformat:2|intcomma}}</span>
+                  {% endif %}
+                </p>
+                <a href="{% url 'meal' item.id item.slug %}" class="text-warning">View Details</a>    
+              </div>
+            </div>
+          </div>
+          <!-- box 1 done -->
+       {% endfor %}
+     {% endif %}
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if paginate.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page={{paginate.previous_page_number}}">Previous</a></li>
+        {% else %}  
+          <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+        {% endif %}
+        {% for item in paginate.paginator.page_range %} 
+          {% if paginate.number == item %}
+            <li class="page-item active"><a class="page-link">{{item}}</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{item}}">{{item}}</a></li>
+          {% endif %}
+        {% endfor %}
+          <!-- <li class="page-item disabled"><a class="page-link" href="#">page {{paginate.number}} of {{paginate.paginator.num_pages}}</a></li>    -->
+        {% if paginate.has_next %}
+          <li class="page-item"><a class="page-link" href="?page={{paginate.next_page_number}}"> Next</a></li>
+        {% else %}  
+          <li class="page-item"><a class="page-link"  href="?page={{paginate.paginator.num_pages}}">Last &raquo;</a></li>
+        {% endif %}
+        <li class="page-item disabled"><a class="page-link" href="#">Page {{paginate.number}} of {{paginate.paginator.num_pages}}</a></li>   
+      </ul>
+    </nav>
+  </div>   
+  <!--  -->
+<!--  -->  
+{% endblock content %}
+
+
+{% block prefoot %} {% include "prefoot.html" %}{% endblock prefoot %}
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

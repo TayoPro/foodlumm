@@ -1,0 +1,912 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.topbar{
+    background: rgb(19, 16, 16);
+}
+.eli li a{
+    filter: invert(1);
+    transition: transform .5s;
+}
+.eli li a:hover i{
+    transform: translateX(50%);
+}
+.auth li{
+    display: inline;
+}
+.auth li a{
+    text-decoration: none;
+    color: goldenrod;
+}
+.auth li a:hover{
+    text-decoration: none;
+    color: white;
+}
+.auth li a span{
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+}
+.auth li a span:hover{
+    color: goldenrod;
+}
+.newbtn {
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    padding: 1% !important;
+    color: white !important;
+    background: goldenrod !important;
+    font-weight: 900;
+    letter-spacing: 1px;
+    outline: none;
+}
+.newbtn:hover{
+    background: goldenrod !important;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    letter-spacing: 1px;
+}
+/* .move{
+    float: right;
+} */
+.pro-icon{
+    width: 8%;
+    border-radius: 100%;
+}
+/* topbar done  */
+/* navbar  */
+.navbar{
+    background: goldenrod;
+    opacity: .8;
+}
+.navbar .navbar-brand img{
+    width: 60px;
+    margin-left: 20%;
+}
+#navbarSupportedContent a{
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 17px;
+}
+.dropdown-menu{
+    background: goldenrod;
+}
+.dropdown-menu .dropdown-item{
+    color: white !important;
+}
+.dropdown-menu .dropdown-item:hover{
+    color: black !important;
+}
+/* navbar done  */
+/* banner  */
+.conta{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(../img/slide1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.banner2{
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url(../img/slide2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.banner2 h2{
+    margin-bottom: -40%;
+    color: white;
+    font-weight: bold;
+}
+.banner2 h4{
+    margin-top: -30%;
+    color: white;
+    font-weight: 900;
+}
+/* banner done  */
+/* .carousel  */
+.carousel-item img{
+    margin: auto;
+    height: 70vh;
+}
+.carousel-caption h5{
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    line-height: 50px;
+    position: absolute;
+    bottom: 50px;
+    left: 250px;
+
+}
+.carousel-caption p{
+    color: goldenrod;
+    font-weight: bolder;
+    font-weight: 900;
+    font-size: larger;
+}
+.carousel-indicators li{
+    background: white;
+    width: 15px;
+    height: 8px;
+    border-radius: 100%;
+}
+/* .carousel done */
+/* content */
+.subject{
+    font-size: 20px;
+    color: chocolate;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+}
+.subject::before{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 3px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(70px);
+    border-radius: 100%;
+}
+.subject::after{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 10px;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    transform: translateY(15px);
+}
+.mybtn{
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    padding: 2% 3%;
+    /* width: 35%; */
+    margin-top: 3%;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    outline: none;
+    background: goldenrod !important;
+}
+.mybtn:hover{
+    border: none;
+    background: goldenrod !important;
+    color: white;
+}
+.mybtn:focus{
+    outline: none;
+}
+.card img{
+    height: 40vh;
+}
+.card .cardtext{
+    height: 25vh;
+}
+.content{
+    height: 60vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../img/restaurant.jpg);
+    display: grid;
+    text-align: center;
+}
+.content h2{
+    margin-top: 10%;
+    color: goldenrod;
+    font-weight: bold;
+}
+.content h4{
+    margin-bottom: 15%;
+    color: white;
+    font-weight: bold;
+}
+/* content done  */
+/* locate  */
+.location{
+    border: none;
+    background: #f0f0f0;
+ }
+.map-box{
+    position: relative;
+}
+.formy{
+    position: absolute;
+    right: 5%;
+}
+.map{
+    height: 65vh;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: goldenrod;
+    text-align: center;
+}
+.form-box form{
+    padding: 3% 5% 0;
+    background: #f0f0f0;
+    opacity: .7;
+    cursor: pointer;
+}
+.form-box .form-group input {
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid goldenrod !important;
+    padding: 0 10px;
+ } 
+.form-box .form-group textarea {
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid goldenrod !important;
+    padding: 0 10px;
+ } 
+.formy-box form{
+    width: 80%;
+    padding: 3% 5% 0;
+    background: #f0f0f0;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px goldenrod;
+}
+.formy-box .form-group input {
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid goldenrod !important;
+    padding: 0 10px;
+} 
+.formy-box .form-group textarea {
+    width: 100%;
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid goldenrod !important;
+    padding: 0 10px;
+} 
+.showxs{
+    display: none;
+}
+ /* locate done */
+/* footer  */
+.footer .list-inline li a{
+    filter: invert(1);
+    transition: transform .5s;
+}
+.footer .list-inline li a i:hover{
+    transform: translateY(-60%) !important;
+}
+
+.footer{
+    text-align: center;
+    font-weight: bold;
+    background: rgb(19, 16, 16);
+}
+.footer h1{
+    color: goldenrod;
+    font-size: 3.5em;
+    font-weight: bold;
+}
+.footer h5{
+    color: white;
+    font-size: 1.2em;
+}
+.footer h6{
+    color: white;
+    font-size: 1.2em;
+    text-align: left;
+    margin-left: 10%;
+}
+.footer h6 a{
+    filter: invert(1);
+    transition: transform .5sec;
+}
+.footer h6 a:hover i{
+    margin-right: 10% !important;
+}
+.footer h6 i{
+    font-size: 1em;
+    margin-top: 2%;
+    /* margin-right: 7%; */
+}
+.footer .side{
+    margin: 5% 0 1%;
+}
+.footer .sides{
+    border-left: 1px solid grey;
+}
+.footer img{
+    width: 100px;
+}
+.footer .anchor a{
+    color: goldenrod;
+    font-size: 1.2em;
+}
+.footer .fab{
+    font-size: 20px;
+}
+.footer .copyright{
+    border-top: .5px solid white;
+    color: goldenrod;
+}
+/* footer done */
+/* signin  */
+#login{
+    background: #f0f0f0;
+}
+.login{
+    padding: 5% 25%;
+}
+/* signin done */
+/* detail  */
+.mdetail{
+    border: none !important;
+}
+.meall{
+    color: goldenrod;
+    font-weight: bold;
+}
+.price{
+    color: goldenrod;
+    font-weight: bold;
+    margin-right: 1%;
+}
+.price span{
+    color: goldenrod;
+}
+.service{
+    color: goldenrod;
+    font-weight: bold;
+}
+.menuu{
+    color: goldenrod;
+    font-weight: bold;
+}
+.quantqty{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.qty{
+    color: goldenrod;
+    font-size: 20px;
+    font-weight: 700;
+}
+.quant{
+    border: 1px solid goldenrod;
+    text-align: center;
+    border-radius: 4px;
+    width: 12%;
+    height: 37.3px;
+    color: goldenrod;
+    font-weight: 600;
+    outline: none;
+}
+.labediv{
+    width: 38%;
+}
+.labediv:focus{
+    outline: none;
+}
+.labe label{
+    background: goldenrod;
+    color: white;
+    outline: 1px solid goldenrod !important;
+    cursor: pointer;
+    border-radius: 5px !important;
+    font-weight: 700;
+}
+.selet{
+    color: goldenrod;
+    outline: 1px solid goldenrod !important;
+    cursor: pointer;
+    border-radius: 5px !important;
+}
+.mbtn{
+    border: 1px solid goldenrod;
+    background: goldenrod !important;
+    padding: 1%;
+    width: 30%;
+    margin-top: .1%;
+    color: white;
+    font-weight: 700;
+    outline: none;
+}
+.mbtn:hover{
+    background: goldenrod !important;
+    color: white;
+}
+.mbtn:focus{
+    outline: none;
+}
+.siden{
+    display: flex;
+    box-shadow: 5px 5px 5px goldenrod;
+}
+.siden:hover{
+    background: goldenrod;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.siden .new1{
+    flex-basis: 30%;
+}
+.siden .new2{
+    flex-basis: 70%;
+}
+.siden .new{
+    margin-left: 5%;
+}
+.siden h5{
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform .5s;
+}
+.siden h5:hover{
+    font-size: 18px;
+    font-weight: bold;
+    transform: translateX(10%);
+}
+.siden p{
+    font-size: 13px;
+    font-weight: bold;
+    transition: transform .5s;
+}
+.siden p a{
+   text-decoration: none;
+   color: black;
+}
+.siden p a:hover{
+   text-decoration: none;
+   color: white;
+}
+.siden p:hover{
+    font-size: 15px;
+    font-weight: bold;
+    transform: translateX(10%);
+}
+.sideimg{
+    width: 100%;
+    height: 15vh;
+    border-radius: 100%;
+}
+.newsubject{
+    color: chocolate;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: capitalize;
+}
+.newsubject::before{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 5px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(68px);
+    border-radius: 100%;
+}
+.newsubject::after{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 10px;
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    border-radius: 100%;
+    transform: translateY(15px);
+}
+/* detail done */
+
+
+/* profile  */
+.prosub::before{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 4px;
+    width: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(-10px);
+    border-radius: 100%;
+}
+.prosub::after{
+    content: '';
+    display: block;
+    background: goldenrod;
+    height: 3px;
+    width: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    border-radius: 100%;
+    transform: translateY(-5px);
+}
+.profile{
+    padding: 0 10%;
+}
+.pptext{
+    margin-bottom: 5%;
+}
+.profile-img{
+    width: 45%;
+    border-radius: 50%;
+    background: indianred;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 10px 10px goldenrod;
+    transition: transform .5s;
+
+}
+.profile-img:hover{
+   transform: rotateY(180deg);
+}
+.profile-img img{
+    width: 100%;
+    border-radius: 100%;
+}
+.profile-text{
+    color: goldenrod;
+    font-weight: bold;
+}
+.ptext{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.ptext:hover span{
+    margin-right: 5%;
+}
+.plinka{
+    display: flex;
+    box-shadow: 5px 5px 5px 5px goldenrod;
+    justify-content: space-around;
+    transition: transform .5s;
+}
+.plinka:hover{
+    color: goldenrod;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5% 0;
+    transform: translateX(20%);
+}
+.plink{
+    display: flex;
+    box-shadow: 5px 5px 5px 5px goldenrod;
+    justify-content: space-around;
+    transition: transform .5s;
+}
+.plink:hover{
+    color: goldenrod;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5% 0;
+    transform: translateX(-20%);
+}
+h5{
+    font-weight: bold;
+}
+h5:hover{
+    color: goldenrod;
+}
+.plinks h5 a{
+    text-decoration: none;
+    color: goldenrod;
+    font-weight: 500;
+}
+.plinks h5 a:hover{
+    text-decoration: none;
+    cursor: pointer;
+    color: goldenrod;
+}
+.profile-form{
+    width: 80%;
+    padding: 10%;
+    margin: auto;
+    box-shadow: 5px 5px 5px 5px goldenrod;
+}
+/* profile done */
+/* shopcart  */
+.cart table{
+    margin-left: auto;
+    margin-right: auto;
+}
+.cart .cartbtn{
+    background: red;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+.cart i{
+    color: white;
+    cursor: pointer;
+}
+.cart thead{
+    /* background: goldenrod; */
+    box-shadow: 5px 5px 5px 5px goldenrod;
+    color: goldenrod;
+}
+.cart tr{
+    color: goldenrod;
+    font-weight: bold;
+}
+.subtable tr td{
+    color: goldenrod;
+    font-weight: bold;
+    border: none;
+}
+.cart td img{
+    width: 90px;
+}
+.chek{
+    background: goldenrod;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+.chek:hover{
+    background: goldenrod;
+    color: white;
+}
+.checkout label{
+    color: goldenrod;
+    font-size: 500;
+    text-transform: capitalize;
+}
+.checkout input{
+    border: 1px solid goldenrod;
+    color: goldenrod;
+    font-size: 500;
+    outline: none;
+    box-shadow: none;
+}
+.checkout input:hover{
+    box-shadow: 1px 1px 2px 3px goldenrod;
+    color: goldenrod;
+    font-size: 500;
+    outline: none;
+    border: none;
+}
+.checkout input:focus{
+    box-shadow: 1px 1px 2px 3px goldenrod;
+    color: goldenrod;
+    font-size: 500;
+    outline: none;
+    border: none;
+}
+/* shopcart done */
+
+
+
+
+
+
+@media (max-width: 991px){
+    .hide{
+        display: none;
+    }
+    .map-box{
+        display: none;
+    }
+    .formy3{
+        position: relative;
+    }
+    .form-box{
+        width: 100%;
+    }
+    .form-box form{
+        width: 100%; 
+        padding: 3% 5% 0;
+        background: #f0f0f0;
+        opacity: 1;
+    }  
+    .hidexs{
+        display: none;
+    }
+    .showxs{
+        display: block;
+    }
+    .mybtn{
+        border: 2px solid goldenrod;
+        border-radius: 25px;
+        padding: 3% 5%;
+        /* width: 35%; */
+        margin-top: 3%;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 2px;
+        outline: none;
+        background: goldenrod !important;
+    }
+    .login{
+        padding: 5% 20%;
+    }
+    .cart .table th,
+    .cart .table td{
+        padding: .5rem !important;
+    }
+    .plinka{
+        display: flex;
+        box-shadow: 5px 5px 5px 5px goldenrod;
+        justify-content: space-around;
+        transition: transform .5s;
+    }
+    .plinka:hover{
+        color: goldenrod;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5% 0;
+        transform: none;
+    }
+    .plink{
+        display: flex;
+        box-shadow: 5px 5px 5px 5px goldenrod;
+        justify-content: space-around;
+        transition: transform .5s;
+    }
+    .plink:hover{
+        color: goldenrod;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5% 0;
+        transform: none;
+    }
+    .subject{
+        color: chocolate;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .subject::before{
+        content: '';
+        display: none;
+        background: goldenrod;
+        height: 3px;
+        width: 170px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(70px);
+        border-radius: 100%;
+    }
+    .subject::after{
+        content: '';
+        display: none;
+        background: goldenrod;
+        height: 10px;
+        width: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+        transform: translateY(15px);
+    }
+    
+}
+
+
+@media (max-width: 768px){
+    .hide{
+        display: none;
+    }
+    .map-box{
+        display: none;
+    }
+    .formy3{
+        position: relative;
+    }
+    .form-box{
+        width: 100%;
+    }
+    .form-box form{
+        width: 100%; 
+        padding: 3% 5% 0;
+        background: #f0f0f0;
+        opacity: 1;
+    }  
+    .hidexs{
+        display: none;
+    }
+    .showxs{
+        display: block;
+    }
+    .mybtn{
+        border: 2px solid goldenrod;
+        border-radius: 25px;
+        padding: .5%;
+        width: 50%;
+        margin-top: 3%;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 2px;
+        outline: none;
+        background: goldenrod !important;
+    }
+    .login{
+        padding: 5% 15%;
+    }   
+    .plinka{
+        display: flex;
+        box-shadow: 5px 5px 5px 5px goldenrod;
+        justify-content: space-around;
+        transition: transform .5s;
+    }
+    .plinka:hover{
+        color: goldenrod;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5% 0;
+        transform: none;
+    }
+    .plink{
+        display: flex;
+        box-shadow: 5px 5px 5px 5px goldenrod;
+        justify-content: space-around;
+        transition: transform .5s;
+    }
+    .plink:hover{
+        color: goldenrod;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5% 0;
+        transform: none;
+    }
+    .subject{
+        color: chocolate;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .subject::before{
+        content: '';
+        display: none;
+        background: goldenrod;
+        height: 3px;
+        width: 170px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(70px);
+        border-radius: 100%;
+    }
+    .subject::after{
+        content: '';
+        display: none;
+        background: goldenrod;
+        height: 10px;
+        width: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+        transform: translateY(15px);
+    }
+}

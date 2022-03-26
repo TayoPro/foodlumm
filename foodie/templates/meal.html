@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %} |{{meal.meal| title}} Details {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+
+{% block content %}
+<!--  -->
+  <div class="container-fluid mt-4 mb-5">
+    <h1  class="subject">{{meal.meal| title}}</h1>
+    <div class="row mt-5">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 w-25 mt-3 mb-3">
+          <h4  class="newsubject">Sides</h4>
+          <div class="siden mt-5 mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="siden mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="siden mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 w-50 mt-3 mb-3">
+          <div class="card w-100 mdetail">
+            <img src="{{meal.image.url}}" class="card-img-top w-75 mx-auto mb-3">
+            <div class="card-body text-center mb-4">
+              <h5 class="card-title mb-3 font-weight-bolder meall">Meal : {{meal.meal| title}}</h5>
+              <p class="card-text mb-4 price">Price : 
+                {% if meal.discount %}
+                  <del>{{meal.price|floatformat:2|intcomma}}</del>
+                  <span>{{meal.discount|floatformat:2|intcomma}}</span>
+                {% else %}
+                  <span>{{meal.price|floatformat:2|intcomma}}</span>
+                {% endif %}
+              </p>  
+              <p class="card-text mb-4 menuu">Menu: {{meal.menu|title}}</p>
+              <p class="card-text mb-4 service">Service Time : {{meal.time}} mins.</p>
+              
+              <form action="{% url 'addtocart' %}" method="POST" class="">
+              {% csrf_token %}  
+                  <div class="mx-auto quantqty">
+                    <label class="qty">Qty</label>
+                    <input  type="number" name="quantity" value="1" min="{{meal.min_order}}" max="{{meal.max_order}}" class="quant" id="exampleInputText1" aria-describedby="textHelp">
+                    <input type="hidden" name="mealid" value="{{meal.id}}">
+                  </div>
+                  <div class="more">
+                    <h6>kindly confirm to us how spicy you want each meal to be</h6>
+                    <input  type="text" name="how_spicey"  id="exampleInputText1" aria-describedby="textHelp">
+                  </div>
+                  <button type="submit" class="btn mybtn">Add To Cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-3 col-lg-3 w-25 mt-3">
+          <h4  class="newsubject">Specials</h4>
+          <div class="siden mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="siden mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="siden mb-5">
+            <div class="new1">
+              <img src="{% static '' %}img/logo.jpg" class="sideimg">
+            </div>
+            <div class="new2">
+              <div class="pt-3 new">
+                <h5>Oat Meal Special</h5>
+                <p class="">Some example text. <br> <a href="">Add To Cart</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>   
+  <!--  -->
+<!--  -->
+
+
+  
+{% endblock content %}
+
+
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}
+
+<!-- <option selected>Choose...</option> -->

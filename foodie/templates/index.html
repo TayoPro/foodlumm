@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | Home {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner.html" %} {% endblock banner %}
+
+
+{% block content %}
+<!--  -->
+  <div class="container-fluid mt-5 varie">
+    <h1  class="subject">Varieties</h1>
+    <div class="row">
+     <!-- box 1  -->
+      {% if varieties %}
+        {% for item in varieties %}
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">  
+              <div class="card w-100">
+                <a href="{% url 'meals' %}"><img src="{{item.image.url}}" class="card-img-top w-100  mb-3"></a>
+                <div class="card-body text-center mb-4 cardtext" style="height: 20vh;">
+                  <h5 class="card-title mb-3 text-info font-weight-bolder">Variety: {{item.name|title}}</h5>
+                  <a href="{% url 'variety'  item.id item.slug %}" class="text-warning">Varieties Here</a>
+                </div>
+              </div>
+            </div>
+            <!-- box 1 done -->
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>   
+  <!--  -->
+<!--  -->
+  <div class="container-fluid mt-4 mb-4">
+    <h1  class="subject">Breakfast</h1>
+    <div class="row">
+     <!-- box 1  -->
+     {% if breakfast %}
+       {% for item in breakfast %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">
+            <div class="card w-100">
+              <a href="{% url 'meals' %}"><img src="{{item.image.url}}" class="card-img-top w-100 mb-3"></a>
+              <div class="card-body text-center mb-4 cardtext">
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Meal: {{item.meal| title}}</h5>
+                <p class="card-text mb-4 text-success">Price: 
+                  {% if item.discount %}
+                    <del>{{item.price|floatformat:2|intcomma}}</del>
+                    <span>{{item.discount|floatformat:2|intcomma}}</span>
+                  {% else %}
+                    <span>{{item.price|floatformat:2|intcomma}}</span>
+                  {% endif %}
+                </p>
+                <a href="{% url 'meals' %}" class="text-warning">View More</a>
+              </div>
+            </div>
+          </div>
+          <!-- box 1 done -->
+       {% endfor %}
+     {% endif %}
+    </div>
+  </div>   
+  <!--  -->
+<!--  -->
+<!--  -->
+  <div class="container-fluid mt-4 mb-4">
+    <h1  class="subject">Lunch</h1>
+    <div class="row">
+     <!-- box 1  -->
+     {% if lunch %}
+       {% for item in lunch %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">
+            <div class="card w-100">
+              <a href="{% url 'meals' %}"><img src="{{item.image.url}}" class="card-img-top w-100  mb-3"></a>
+              <div class="card-body text-center mb-4 cardtext">
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Meal: {{item.meal| title}}</h5>
+                <p class="card-text mb-4 text-success">Price: 
+                  {% if item.discount %}
+                    <del>{{item.price|floatformat:2|intcomma}}</del>
+                    <span>{{item.discount|floatformat:2|intcomma}}</span>
+                  {% else %}
+                    <span>{{item.price|floatformat:2|intcomma}}</span>
+                  {% endif %}
+                </p>
+                <a href="{% url 'meals' %}" class="text-warning">View More</a>
+              </div>
+            </div>
+          </div>
+          <!-- box 1 done -->
+       {% endfor %}
+     {% endif %}
+    </div>
+  </div>   
+  <!--  -->
+<!--  -->
+<!--  -->
+  <div class="container-fluid mt-4 mb-4">
+    <h1  class="subject">Dinner</h1>
+    <div class="row">
+     <!-- box 1  -->
+     {% if dinner %}
+       {% for item in dinner %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">
+            <div class="card w-100">
+              <a href="{% url 'meals' %}"><img src="{{item.image.url}}"  class="card-img-top w-100  mb-3"></a>
+              <div class="card-body text-center mb-4 cardtext">
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Meal: {{item.meal| title}}</h5>
+                <p class="card-text mb-4 text-success">Price: 
+                  {% if item.discount %}
+                    <del>{{item.price|floatformat:2|intcomma}}</del>
+                    <span>{{item.discount|floatformat:2|intcomma}}</span>
+                  {% else %}
+                    <span>{{item.price|floatformat:2|intcomma}}</span>
+                  {% endif %}
+                </p>
+                <a href="{% url 'meals' %}" class="text-warning">View More</a> 
+              </div>
+            </div>
+          </div>
+          <!-- box 1 done -->
+       {% endfor %}
+     {% endif %}
+    </div>
+  </div>   
+  <!--  -->
+<!--  -->
+  
+{% endblock content %}
+
+
+{% block prefoot %} {% include "prefoot.html" %}{% endblock prefoot %}
+
+
+{% block locate %} {% include "locate.html" %}{% endblock locate %}
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

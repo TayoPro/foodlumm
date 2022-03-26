@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+
+{% block title %} |  Checkout {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+
+{% block content %}
+  <div class="container-fluid mt-5 mb-5">
+    <h1  class="subject">Checkout</h1>
+    <div class="row mt-5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6  mt-5 mb-4">
+        <div class="cart">
+          <h4  class="newsubject">Order Summary</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Spice</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody> 
+              {% if shopcart %}
+                {% for item in shopcart  %}
+                  <tr>
+                    <td><img src="{{item.meal.image.url}}"></td>
+                    <td>{{item.how_spicey}}</td>
+                    <td> 
+                      {% if item.meal.discount %}
+                        <span>{{item.meal.discount|floatformat:2|intcomma}}</span>
+                      {% else %}
+                        <span>{{item.meal.price|floatformat:2|intcomma}}</span>
+                      {% endif %} 
+                    </td>
+                    <td>{{item.quantity}}</td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
+          <table class="table subtable">
+            <tbody>            
+              <tr>
+                <td scope="row"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+                <td>Total : {{total|floatformat:2|intcomma}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6  mt-5 mb-4">
+        <div class="">
+          <h4  class="newsubject">Shipping Address</h4>
+          <div class="checkout">
+            <form action="{% url 'placeorder' %}" method="POST" class="mx-auto">  
+            {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputText1">First Name</label>
+                <input type="text" name="first_name" value="{{profile.first_name}}" placeholder="First Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Last Name</label>
+                <input type="text" name="last_name" value="{{profile.last_name}}" placeholder="Last Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Phone</label>
+                <input type="text" name="phone" value="{{profile.phone}}" placeholder="Phone" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Email</label>
+                <input type="text" name="email" value="{{profile.user.email}}" placeholder="email" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1"></label>
+                <input type="text" name="address" value="{{profile.address}}" placeholder="Address" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">State</label>
+                <input type="text" name="state" value="{{profile.state}}" placeholder="State" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                <input type="hidden" name="get_total" value="{{total}}">
+                <!-- <input type="hidden" name="get_orderno" value="{{orderno}}"> -->
+              </div>
+              <button type="submit" class="btn mybtn">Place Order</button>
+            </form>
+          </div>
+        </div>    
+      </div>
+    </div>  
+  </div>  
+{% endblock content %}
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

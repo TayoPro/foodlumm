@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+{% load humanize %}
+
+
+{% block title %} | Transaction Completed {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+
+{% block content %}
+<!-- content -->
+<div class="container-fluid mt-5 mb-5">
+  <h1  class="subject">Order Completed</h1>
+  <div class="row mt-5">
+  <div class="col-12 col-sm-4 col-md-6 col-lg-2 mt-4 mb-3">
+    {% include "profile-left.html" %}              
+  </div>
+  <div class="col-12 col-sm-8 col-md-6 col-lg-5 mt-5 mb-3"> 
+    <div class="profile mt-5">
+      <div class="profile-text mt-5">
+        <h5 class="mb-3 font-weight-bolder">Dear <span>{{profile.first_name}}</span> your order is successful!</h5>
+        <p class="mb-3">Your order will be served in 15 mins</p>
+        <h5 class="mb-3 font-weight-bolder">Thank you for trusting us @ Foodie Fast Service Restaurant!</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-12 col-lg-5 mt-4 mb-3">
+    <div class="profile-text">
+      <div class="cart">
+        <h4  class="newsubject">Order Placed</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Spice</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+            </tr>
+          </thead>
+          <tbody> 
+            
+          </tbody>
+        </table>
+        <table class="table subtable">
+          <tbody>            
+            <tr>
+              <td scope="row"></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td> </td>
+              <td>Total : </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>   
+</div> 
+<!--content  -->
+{% endblock content %}
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | Your search {{searched}} Meals {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+
+{% block content %}
+<!--  -->
+  <div class="container-fluid mt-4 mb-5">
+    <h1  class="subject mt-5 mb-5">{{searched}} Meals</h1>           
+    {% if searched_meals %}
+      <h3 class="text-success text-center mt-5 mb-4">Your search for {{searched|title}} is successful!</h3>
+    <div class="row mb-5">
+     <!-- box 1  -->
+       {% for item in searched_meals %}
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 w-25 mt-5 mb-3">
+            <div class="card w-100">
+              <a href="{% url 'meals' %}"><img src="{{item.image.url}}" class="card-img-top w-100  mb-3"></a>
+              <div class="card-body text-center mb-4">
+                <h5 class="card-title mb-3 text-info font-weight-bolder">Meal: {{item.meal| title}}</h5>
+                <p class="card-text mb-4 text-success">Price: 
+                  {% if item.discount %}
+                    <del>{{item.price|floatformat:2|intcomma}}</del>
+                    <span>{{item.discount|floatformat:2|intcomma}}</span>
+                  {% else %}
+                    <span>{{item.price|floatformat:2|intcomma}}</span>
+                  {% endif %}
+                </p>
+                <a href="{% url 'meal' item.id item.slug %}" class="text-warning">View Details</a>    
+              </div>
+            </div>
+          </div>
+          <!-- box 1 done -->
+       {% endfor %}
+      </div>
+      {% else %} 
+       <h3 class="text-danger text-center mt-5">Your search {{searched|title}} is not available!</h3>
+      {% endif %}
+    </div>   
+    <!--  -->
+    <!--  -->  
+{% endblock content %}
+
+
+{% block prefoot %} {% include "prefoot.html" %}{% endblock prefoot %}
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

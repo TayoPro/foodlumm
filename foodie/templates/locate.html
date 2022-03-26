@@ -1,0 +1,108 @@
+  <!-- location  -->
+  <!-- <div class="location" id="contact">
+    <h1 class="subject">Contact Us</h1>
+    <div class="container-fluid mt-5 mb-3">
+      <div class="row">
+        <div class="col-12 col-md-6 mt-3 mb-5 pr-4">
+          <div class="map-box w-100">
+            <iframe class="map w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126846.
+            012071537!2d3.2934882198730935!3d6.529530613377654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+            1!3m3!1m2!1s0x103b9228fa2a3999%3A0xd7a8324bddbba1f0!2sIkeja!5e0!3m2!1sen!2sng!4v1644356826406!5m2!1sen!2sng"
+             allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mt-1 mb-5">
+          <div class="form-box w-100">
+            <form class="w-50 mx-auto" action="{% url 'contact' %}" method="POST"> 
+            {% csrf_token %}
+              <div class="title">Send Message</div>
+              <div class="form-group">
+                <label for="exampleInputText1">Full Name</label>
+                <input type="text" class="form-control" name="name" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Phone Number</label>
+                <input type="text" class="form-control" name="phone" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Subject</label>
+                <input type="text" class="form-control" name="subject" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText1">Message</label>
+                <textarea class="w-100 mx-auto" name="message" id="" cols="40" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn mybtn">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+ <!-- location done -->
+
+
+
+
+
+
+
+  <!-- location  -->
+  <div class="location pt-3 pb-5" id="contact">
+    <h1 class="subject mt-5">Contact Us</h1>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-12 hidexs">
+          <div class="map-box">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126846.
+            012071537!2d3.2934882198730935!3d6.529530613377654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+            1!3m3!1m2!1s0x103b9228fa2a3999%3A0xd7a8324bddbba1f0!2sIkeja!5e0!3m2!1sen!2sng!4v1644356826406!5m2!1sen!2sng"
+             allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 formy hidexs">
+          <div class="form-box w-75">
+            <form class="w-100" action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+              <div class="title">Send Message</div>
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Full Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <input type="text" name="phone" placeholder="Phone Number" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" placeholder="Subject" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Your Message" class="form-control" cols="30" rows="5"></textarea>
+              </div>
+              <button type="submit" class="btn mybtn mb-4">Send</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 formy3 mb-5 showxs">
+          <div class="formy-box w-100 px-auto">
+            <form class="mx-auto" action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+              <div class="title">Send Message</div>
+              <div class="form-group">
+                <input type="text"  name="name" placeholder="Full Name" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <input type="text" name="phone" placeholder="Phone Number" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <input type="text" name="subject" placeholder="Subject" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Your Message" class="form-control" cols="30" rows="5"></textarea>
+              </div>
+              <button type="submit" class="btn mybtn mb-4">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- location done -->

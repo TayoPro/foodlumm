@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+
+{% load humanize %}
+
+
+{% block title %} | {{profile.first_name}} Profile {% endblock title %}
+
+
+{% block header %} {% include "header.html" %} {% endblock header %}
+
+
+{% block banner %} {% include "banner2.html" %} {% endblock banner %}
+
+
+{% block content %}
+<!-- content -->
+<div class="container-fluid mt-5 mb-5">
+  <h1  class="subject"><span>{{profile.user.username}}</span> dashboard</h1>
+  <div class="row mt-5">
+      <div class="col-4 col-sm-3 col-md-3 col-lg-3 w-25 mt-4 mb-3">
+        {% include "profile-left.html" %}
+      </div>
+      <div class="col-8 col-sm-6 col-md-6 col-lg-6 w-25 mt-4 mb-3"> 
+        <div class="profile">
+          <div class="profile-img">
+            <img src="{{profile.image.url}}">
+          </div>
+          <div class="profile-text mt-5 mb-4">
+            <div class="ptext">
+              <div class="pptext">
+                <h5 class="mb-2 font-weight-bolder">Username: <span class="ml-2">{{profile.user.username}}</span></h5>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">First Name: <span class="ml-2">{{profile.first_name|title}}</span></p>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">Last Name: <span class="ml-2">{{profile.last_name|title}}</span></p>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">Email: <span class="ml-2">{{profile.user.email}}</span></p>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">Phone <span class="ml-2">{{profile.phone}}</span></p>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">Address: <span class="ml-2">{{profile.address|title}}</span></p>
+              </div>
+              <div class="pptext">
+                <p class="mb-2">State: <span class="ml-2">{{profile.state|title}}</span></p>
+              </div>
+            </div>         
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3 col-md-3 col-lg-3 w-25 mt-4 mb-3">
+          {% include "profile-right.html" %}           
+      </div>
+  </div>
+</div>   
+<!--content  -->
+
+
+  
+{% endblock content %}
+
+
+
+
+
+{% block footer %} {% include "footer.html" %}{% endblock footer %}

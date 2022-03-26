@@ -1,0 +1,110 @@
+{% load sample_tags %}
+{% load static %}
+<!-- header area  -->
+   <div class="container-fluid topbar">
+    <div class="row">
+      <div class="col-12 col-sm-2 col-md-3 col-lg-3 col-xl-4 mt-3 mb-1 mx-auto hide">
+        <ul class="list-inline ml-2">
+          <li class="list-inline-item" style="color: goldenrod;"><i class="fas fa-phone-alt"></i>+23401786543</li>
+          <li class="list-inline-item" style="color: goldenrod;"> <i class="fal fa-clock"></i>Mon-Sat: 11AM - 23PM</li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-1 col-md-2 col-lg-3 col-xl-4 mt-3 mb-1 mx-auto hide">
+        <ul class="list-inline eli ml-auto">
+          <li class="list-inline-item"><a href=""><i class="fab fa-facebook"></i></a></li>
+          <li class="list-inline-item"><a href=""><i class="fab fa-twitter-square"></i></a></li>
+          <li class="list-inline-item"><a href=""><i class="fab fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
+          <li class="list-inline-item"><a href=""><i class="fab fa-whatsapp-square"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-4 mt-3 mb-1 auth">
+        <ul class="mx-auto">
+        {% if user.is_authenticated %}
+          <li>
+            <a class="mt-2" href="{% url 'profile' %}"> Welcome
+              <span>
+              {% if user.profile.first_name %}
+                {{user.profile.first_name|title}}
+              {% else %}
+                {{user.username|title}}
+              {% endif %}   
+              </span>!
+            </a>
+          </li>
+          <li><a class="mt-2" href="{% url 'profile' %}"><img src="{{user.profile.image.url}}" class="pro-icon"></a></li>
+          <li><a class="newbtn mt-2" href="{% url 'profile' %}">Profile</a></li>
+          <li><a class="newbtn mt-2" href="{% url 'signout' %}">SignOut</a></li>
+          <li><a class="newbtn mt-2" href="{% url 'cart' %}">
+            <i class="far fa-shopping-basket">
+              {% if cartcount > 0 %}
+                <span class="badge badge-pill badge-dark text-white">{{cartcount}}</span>
+              {% else %}
+                <span class="badge badge-pill badge-dark text-white">0</span>
+              {% endif %} 
+            </i>         
+          </a>
+        </li>  
+        {% else %}
+          <li class="newpuh"><a class="newbtn mt-2" href="{% url 'signin' %}">SignIn</a></li>
+          <li class="newpuh1"><a class="newbtn mt-2" href="{% url 'signup' %}">SingUp</a></li>
+        {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+      <nav class="navbar navbar-expand-lg  sticky-top"> 
+          <a class="navbar-brand" href="/"><img src="{% static '' %}img/logo.jpg"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span style="color:white"><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">  
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Varieties
+                </a>
+                <div class="dropdown-menu mt-2" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item text-warning" href="">Varieties Here</a>
+                  {% if varieties %}
+                      {% for item in varieties %}
+                        <a class="dropdown-item text-warning" href="{% url 'variety'  item.id item.slug %}">{{item.name|title}}</a>
+                      {% endfor %}
+                  {% endif %}  
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'meals' %}">All Meals</a>  
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% intralink 'index' 'contact' %}">Contact</a> 
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'searched' %}"> 
+            {% csrf_token %}
+              <input class="form-control mr-sm-2" name="itemsearch" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Meals</button>
+            </form>
+          </div>
+        </nav>
+      <!-- header area done -->
+
+
+      
+      {% if messages %}
+        {% for item in messages %}
+        <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+          <strong>  {{item}} </strong> 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      {% endif %}
+        
